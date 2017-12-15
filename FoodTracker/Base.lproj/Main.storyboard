@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R15-Ra-wRW">
-                                <rect key="frame" x="0.0" y="40" width="375" height="96.5"/>
+                                <rect key="frame" x="10" y="40" width="355" height="96.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csX-ul-UtS">
                                         <rect key="frame" x="0.0" y="0.0" width="86.5" height="20.5"/>
@@ -28,7 +28,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="96f-ex-bUA">
-                                        <rect key="frame" x="0.0" y="28.5" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="355" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -41,16 +41,17 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="96f-ex-bUA" secondAttribute="trailing" id="8fP-Qa-RfW"/>
+                                    <constraint firstAttribute="trailing" secondItem="96f-ex-bUA" secondAttribute="trailing" id="Rbo-Xn-qaF"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="R15-Ra-wRW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="J7Q-8S-nsB"/>
-                            <constraint firstItem="R15-Ra-wRW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="WfU-ef-nmg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R15-Ra-wRW" secondAttribute="trailing" id="yHH-RM-0TX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R15-Ra-wRW" secondAttribute="trailing" constant="10" id="8OS-Gh-9Oi"/>
+                            <constraint firstItem="R15-Ra-wRW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="SWu-Kg-Jpz"/>
+                            <constraint firstItem="R15-Ra-wRW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="mnj-s4-jxf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
