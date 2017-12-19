@@ -22,7 +22,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
      This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
      or constructed as part of adding a new meal.
      */
-    var meal: Meal?
+    var _meal: Meal?
     
     
     // MARK: Initialization
@@ -32,6 +32,17 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         
         // handle the text field’s user input through delegate callbacks
         nameTextField.delegate = self
+        
+        // init controls if meal data present
+        if let meal = _meal
+        {
+            navigationItem.title = meal.name
+            nameTextField.text   = meal.name
+            photoImageView.image = meal.photo
+            ratingControl.rating = meal.rating
+        }
+        
+        // enable the Save button only if the text field has a valid Meal name
         self.updateSaveButtonState()
     }
     
@@ -87,12 +98,26 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             return
         }
         
-        meal = Meal(name: (nameTextField.text ?? ""), photo: photoImageView.image, rating: ratingControl.rating)
+        _meal = Meal(name: (nameTextField.text ?? ""), photo: photoImageView.image, rating: ratingControl.rating)
     }
     
     
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func cancel(_ sender: UIBarButtonItem)
+    {
+        // depending on style of presentation (modal or push presentation), this view controller needs to be dismissed  differently
+        let isPresentingInAddMealMode = self.presentingViewController is UINavigationController
+        if isPresentingInAddMealMode
+        {
+            self.dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = self.navigationController
+        {
+            owningNavigationController.popViewController(animated: true)
+        }
+        else
+        {
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
     }
     
     
